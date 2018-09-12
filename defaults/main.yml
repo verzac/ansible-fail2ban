@@ -1,0 +1,3 @@
+---
+system_user: root
+working_directory: /home/{{ system_user }}/tmp

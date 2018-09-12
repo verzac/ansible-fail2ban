@@ -1,0 +1,13 @@
+---
+- name: Download fail2ban
+  apt:
+    name: fail2ban
+    state: present
+    update_cache: yes
+
+- name: Deploy jail.local
+  template:
+    src: jail.local
+    dest: /etc/fail2ban/jail.local
+
+  

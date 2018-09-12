@@ -1,0 +1,11 @@
+---
+- name: Install OpenVPN
+  hosts: all
+  remote_user: root
+  roles:
+    - fail2ban
+    - openvpn
+  vars_files:
+    - defaults/main.yml
+    
+    

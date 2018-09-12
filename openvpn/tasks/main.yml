@@ -1,0 +1,22 @@
+---
+- name: Install openvpn
+  apt:
+    name: "openvpn"
+    state: present
+    update_cache: yes
+
+- name: Create folder structure
+  file:
+    path: "{{ working_directory }}/easyrsa"
+    state: directory
+    owner: "{{ system_user }}"
+    group: "{{ system_user }}"
+    recurse: yes
+    mode: 0744
+
+- name: Get easyrsa.tgz
+  unarchive:
+    src: https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.4/EasyRSA-3.0.4.tgz
+    dest: "{{ working_directory }}/easyrsa"
+    remote_src: yes
+
